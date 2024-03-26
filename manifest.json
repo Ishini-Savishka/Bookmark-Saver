@@ -1,0 +1,131 @@
+{
+  "name": "Bookmark",
+  "manifest_version": 3,
+  "version": "1.0",
+  "short_name": "Bookmark",
+  "start_url": "/register.php",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "dist/img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+
+    },
+    {
+      "src": "dist/img/bg.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "dist/img/e.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/f.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/g.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/h.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any" },
+    {
+      "src": "dist/img/b.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/c.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"    },
+    {
+      "src": "dist/img/d.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/h.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/i.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/j.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"  },
+    {
+      "src": "dist/img/k.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/l.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/m.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"    },
+    {
+      "src": "dist/img/n.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/o.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/p.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"    },
+    {
+      "src": "dist/img/q.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"  },
+    {
+      "src": "dist/img/r.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/s.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/t.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   },
+    {
+      "src": "dist/img/user.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"   }
+  ]
+}

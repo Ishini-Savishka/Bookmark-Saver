@@ -1,0 +1,294 @@
+.image {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.user-image {
+    width: 40%; 
+    height: auto; 
+    border-radius: 10%; 
+}
+
+.tab-link {
+    margin-right: 80px; 
+    position: relative;
+    text-decoration: none;
+    color: #6c757d; /* Set the color of the tabs */
+    border: none; /* Remove default border */
+    background: none; /* Remove background */
+    padding: 0; /* Remove padding */
+  }
+
+  .tab-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust the value as needed */
+    width: 100%;
+    height: 2px;
+    background-color: #000000; /* Color of the underline */
+    transition: bottom 0.3s ease; /* Add transition effect for smooth animation */
+}
+
+
+  .tab-link li a {
+    font-weight: bold;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+/* Dark mode styles */
+.dark-mode {
+    color: #ffffff; 
+    background-color: #222;
+}
+
+
+/* Additional styles for specific elements */
+.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #ffffff; 
+}
+
+.dark-mode .navbar-light .navbar-brand {
+    color: #ffffff; 
+}
+
+.dark-mode .navbar-light .navbar-toggler-icon {
+    background-color: #ffffff; 
+}
+
+.dark-mode .main-header {
+    background-color: #222; 
+}
+
+.dark-mode .sidebar {
+    background-color: #000000; 
+}
+
+.dark-mode .nav-treeview > .nav-item > .nav-link {
+    color: #ffffff; 
+}
+
+.dark-mode .content-wrapper {
+    background-color: #272727; 
+}
+.dark-mode .wrapper {
+  background-color: #272727; 
+}
+
+.dark-mode .card {
+    background-color: #272727; 
+    color: #ffffff; 
+}
+
+.dark-mode .sidebar .info .text-dark {
+    color: #ffffff; 
+}
+
+.dark-mode .nav-sidebar .nav-link {
+    color: #ffffff; 
+}
+.dark-mode .sidebar .info a.text-dark {
+    color: #ffffff !important;
+}
+.dark-mode .main-sidebar {
+    background-color: #000000; 
+    height: 100vh;
+}
+
+.dark-mode .nav-pills .nav-item .nav-link {
+  color: #ccc; /* Change text color */
+  background-color: #333; /* Change background color */
+}
+
+.dark-mode #content {
+  background-color: #272727; /* Change content background color */
+  color: #ccc; /* Change content text color */
+}
+.dark-mode .container {
+  background-color: #272727; /* Dark mode background color */
+}
+
+/* Dark mode background color */
+body.dark-mode {
+  background-color: #272727 !important; /* Use !important to ensure override */
+}
+
+
+#content .card {
+    height: 300px; 
+    border-radius: 20px; 
+    overflow: hidden; 
+}
+
+#content .card img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover; 
+}
+
+
+#content .card-title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 10px;
+    color: #fff; /* Text color */
+}
+
+#content .card-title {
+    margin: 0;
+}
+
+#content .card-text-overlay {
+    position: absolute;
+    bottom: 70%; /* Position at the vertical center */
+    left: 10px;
+    right: 0;
+    width: 80%;
+    transform: translateY(50%); /* Move the text up by half of its own height */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent black background */
+    padding: 10px;
+    color: #000000; /* Text color */
+    font-weight: bold;
+}
+
+#content .card-link-overlay {
+    position: absolute;
+    bottom: 0; /* Position at the bottom */
+    right: 0; /* Position at the left */
+    padding: 10px;
+    color: #fff; /* Text color */
+}
+
+.custom-navbar {
+    background-color: #ffffff; 
+    border-bottom: none; /* Remove the bottom border */
+
+}
+.card-img-top {
+  height: 200px; /* Set a fixed height for the card images */
+  object-fit: fill; /* Maintain aspect ratio and crop if needed */
+}
+
+.card-image {
+  width: 200px;
+  transition: transform 0.5s ease;
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.dark-mode .card-image {
+  background-color: #ffffff; /* Dark mode background color */
+}
+
+.card-category {
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(5px); 
+  border-style: solid; /* Specify the border style */
+  border-width: 2px; /* Specify the border width */
+  border-color: #B17500;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-details {
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 40px 0 40px 0; /* Top-left and bottom-left corners rounded */
+  backdrop-filter: blur(5px); 
+  border-style: solid; /* Specify the border style */
+  border-width: 2px; /* Specify the border width */
+  border-color: #B17500;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+}
+.sidebar {
+  height: 100vh; /* Set height to 100% of the viewport height */
+  overflow-y: hidden; /* Hide vertical scroll */
+}
+
+.main-sidebar{
+  height: 100vh;
+
+}
+.content-wrapper {
+  height: 100%;
+  overflow-y: auto; /* Add vertical scroll if content exceeds the height */
+}

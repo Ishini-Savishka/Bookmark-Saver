@@ -1,0 +1,6 @@
+services:
+  - name: php-apache
+    type: web
+    buildCommand: null
+    startCommand: php -S 0.0.0.0:$PORT -t .
+    env: php
