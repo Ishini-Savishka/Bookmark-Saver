@@ -2,5 +2,5 @@ services:
   - name: php-apache
     type: web
     buildCommand: null
-    startCommand: php -S 0.0.0.0:$PORT -t .
+    startCommand: /usr/sbin/apache2ctl -D FOREGROUND
     env: php
