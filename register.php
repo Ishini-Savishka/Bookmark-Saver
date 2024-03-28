@@ -4,14 +4,13 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
-    $host = "dpg-co2kbt4f7o1s73ckenbg-a"; // Update with your PostgreSQL host
-    $port = "5432"; // Update with your PostgreSQL port
-    $dbname = "bookmark_ye3b"; // Update with your PostgreSQL database name
-    $user = "ishini"; // Update with your PostgreSQL username
-    $password = "lMwuIXErOpfPZu4ZcKk9thg00HPinX1f"; // Update with your PostgreSQL password
+    $servername = "localhost:3308";
+    $username = "root";
+    $password = "ish@123";
+    $database = "bookmark";
 
     // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+    $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
