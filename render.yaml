@@ -3,4 +3,4 @@ services:
     type: web
     buildCommand: composer install --no-dev
     startCommand: php -S 0.0.0.0:$PORT -t .
-    env: php
+    env: python3
