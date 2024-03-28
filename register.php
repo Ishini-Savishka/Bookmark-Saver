@@ -4,14 +4,18 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
-    $servername = "localhost:3308";
-    $username = "root";
-    $password = "ish@123";
-    $database = "bookmark";
+$servername = "localhost:3308";
+$username = "root";
+$password = "ish@123";
+$database = "bookmark";
+
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database);
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
