@@ -16,17 +16,18 @@ $error = ""; // Initialize error variable
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
-    $servername = "localhost:3308";
-    $username = "root";
-    $password = "ish@123";
-    $database = "bookmark";
+    $host = "dpg-co2kbt4f7o1s73ckenbg-a"; // Update with your PostgreSQL host
+    $port = "5432"; // Update with your PostgreSQL port
+    $dbname = "bookmark_ye3b"; // Update with your PostgreSQL database name
+    $user = "ishini"; // Update with your PostgreSQL username
+    $password = "lMwuIXErOpfPZu4ZcKk9thg00HPinX1f"; // Update with your PostgreSQL password
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
+    // Connect to PostgreSQL database
+    $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
     // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if (!$conn) {
+        die("Connection failed: " . pg_last_error());
     }
 
     // Retrieve username and password from the form
@@ -34,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Validate user credentials
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = $conn->query($sql);
+    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = pg_query($conn, $query);
 
-    if ($result->num_rows == 1) {
+    if ($result && pg_num_rows($result) == 1) {
         // Valid credentials, fetch user details from the database
-        $user_data = $result->fetch_assoc();
+        $user_data = pg_fetch_assoc($result);
         
         // Set session variables
         $_SESSION["id"] = $user_data['id']; // Assuming 'id' is the column name for user ID in your database
@@ -52,7 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Invalid username or password!"; // Set error message
     }
     
-    $conn->close();
+    // Close connection
+    pg_close($conn);
 }
 ?>
 
