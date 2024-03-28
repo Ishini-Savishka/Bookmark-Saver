@@ -79,8 +79,9 @@ if (isset($_SESSION["id"])) {
             width: 100%;
             max-width: 300px;
             margin-bottom: 20px;
-            border: none;
+            border-color: black;
             border-radius: 10px;
+            border-width: 2px; 
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }

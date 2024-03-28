@@ -1,6 +1,7 @@
 services:
-  - name: php-apache
+  - name: my-php-service
     type: web
-    buildCommand: null
-    startCommand: /usr/sbin/apache2ctl -D FOREGROUND
+    buildCommand: composer install --no-dev
+    startCommand: php -S 0.0.0.0:$PORT -t .
     env: php
+
