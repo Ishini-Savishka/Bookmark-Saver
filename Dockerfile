@@ -2,4 +2,4 @@ services:
   - name: my-php-service
     type: web
     dockerfile: ./Dockerfile
-    env: docker 
+    env: docker
