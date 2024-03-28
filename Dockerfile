@@ -10,7 +10,7 @@ RUN docker-php-ext-install mysqli
 # Copy the current directory contents into the container at /var/www/html
 COPY . /var/www/html
 # Specify the port number the container should expose
-EXPOSE 8000
+EXPOSE 5432
 
 
 # Run the PHP built-in server when the container launches
