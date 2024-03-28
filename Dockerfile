@@ -4,9 +4,18 @@ FROM php:8.0
 # Set the working directory in the container
 WORKDIR /var/www/html
 
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    wget \
+    unzip
+
+# Install Composer
+RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar
+RUN chmod +x /usr/local/bin/composer
+
 # Install PostgreSQL extension
-RUN apt-get update && apt-get install -y libpq-dev \
-    && docker-php-ext-install pdo_pgsql
+RUN docker-php-ext-install pdo_pgsql
 
 # Copy the current directory contents into the container at /var/www/html
 COPY . /var/www/html
