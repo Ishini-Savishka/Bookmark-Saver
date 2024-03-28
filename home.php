@@ -245,7 +245,6 @@ if (isset($_SESSION["id"])) {
                                 <button class="btn btn-primary" style="width: 200px; border-radius: 20px;">New Category</button></a>
                         </div>
                         <br>
-                        <br>
                         <div class="text-center">
                             <a href="data.php">
                                 <button class="btn btn-success" style="width: 200px; border-radius: 20px;">Manage Bookmark</button></a>
