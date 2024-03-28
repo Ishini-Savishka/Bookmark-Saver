@@ -4,25 +4,11 @@ FROM php:8.0
 # Set the working directory in the container
 WORKDIR /var/www/html
 
-# Install MySQLi extension
+# Install mysqli extension
 RUN docker-php-ext-install mysqli
-
-# Install PostgreSQL extension
-RUN apt-get update && apt-get install -y libpq-dev \
-    && docker-php-ext-install pdo_pgsql
-
-# Install Composer
-RUN apt-get update && \
-    apt-get install -y git unzip && \
-    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
-    php -r "unlink('composer-setup.php');"
 
 # Copy the current directory contents into the container at /var/www/html
 COPY . /var/www/html
-
-# Run Composer to install dependencies
-RUN composer install --no-dev
 
 # Specify the port number the container should expose
 EXPOSE $PORT
