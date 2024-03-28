@@ -11,3 +11,4 @@ RUN docker-php-ext-install mysqli
 COPY . /var/www/html
 # Expose port 3306 for MySQL
 
+CMD ["php", "-S", "0.0.0.0:3306", "-t", "/var/www/html"]
