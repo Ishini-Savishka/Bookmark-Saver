@@ -1,5 +1,6 @@
 services:
   - name: my-php-service
     type: web
-    buildCommand: echo "No build step required"
-    startCommand: php -S 0.0.0.0:$PORT -t .
+    dockerfile: ./Dockerfile
+    env: docker
+
