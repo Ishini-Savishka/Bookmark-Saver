@@ -1,7 +1,13 @@
 services:
+<<<<<<< HEAD
   - name: my-php-service
     type: web
     buildCommand: composer install --no-dev
+=======
+  - name: web
+    type: web
+    buildCommand: composer install
+>>>>>>> 8883067153857d8cbbfc3b74c1029dcf02f9380d
     startCommand: php -S 0.0.0.0:$PORT -t .
     env: php
 
