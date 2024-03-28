@@ -15,7 +15,7 @@ COPY . /var/www/html
 RUN composer install --no-dev
 
 # Specify the port number the container should expose
-EXPOSE $PORT
+EXPOSE 8000
 
 # Run the PHP built-in server when the container launches
-CMD ["php", "-S", "0.0.0.0:{$PORT}", "-t", "."]
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "."]
