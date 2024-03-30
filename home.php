@@ -7,7 +7,7 @@ if (isset($_POST["logout"])) {
     header("Location: index.php");
     exit();
 }
-
+}
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
