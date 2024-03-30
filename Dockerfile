@@ -5,10 +5,9 @@ FROM php:8.0
 WORKDIR /var/www/html
 
 # Install the PostgreSQL client and server packages
-RUN apt-get update && apt-get install -y libpq-dev
-
-# Install the PostgreSQL PHP extension
-RUN docker-php-ext-install pdo_pgsql
+RUN apt-get update \
+    && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo_pgsql
 
 # Copy the current directory contents into the container at /var/www/html
 COPY . /var/www/html
