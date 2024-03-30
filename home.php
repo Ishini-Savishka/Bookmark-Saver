@@ -1,13 +1,6 @@
 <?php
-session_start();
 
-if (isset($_POST["logout"])) {
-    $_SESSION = array();
-    session_destroy();
-    header("Location: index.php");
-    exit();
-}
-}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
@@ -21,22 +14,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
     // Check connection
-    if (!$conn) {
-        die("Connection failed: " . pg_last_error());
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-// Fetch profile image path for the logged-in user
-if (isset($_SESSION["id"])) {
-    $userId = $_SESSION["id"];
-    $profileImageQuery = "SELECT profile_image FROM users WHERE id = ?";
-    $stmt = $conn->prepare($profileImageQuery);
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $profileImage = $row["profile_image"];
+    // Retrieve username and password from the form
+    $username = $_POST["userName"];
+    $password = $_POST["password"];
+
+    // Check if username already exists
+    $sql_check = "SELECT * FROM users WHERE username='$username'";
+    $result_check = $conn->query($sql_check);
+    if ($result_check->num_rows > 0) {
+        $error = "Username already exists";
+    } else {
+        // Insert new user into the database
+        $sql_insert = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+        if ($conn->query($sql_insert) === TRUE) {
+            // Automatically log in the new user
+            $_SESSION["username"] = $username;
+            // Redirect to home page
+            header("Location: index.php");
+            exit();
+        } else {
+            $error = "Error: " . $conn->error;
+        }
     }
+
+    $conn->close();
 }
 ?>
 
