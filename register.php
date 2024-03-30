@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Retrieve username and password from the form
-    $username = pg_escape_string($_POST["userName"]);
-    $password = pg_escape_string($_POST["password"]);
+    $username = pg_escape_string($conn, $_POST["userName"]);
+    $password = pg_escape_string($conn, $_POST["password"]);
 
     // Check if username already exists
     $sql_check = "SELECT * FROM users WHERE username='$username'";
