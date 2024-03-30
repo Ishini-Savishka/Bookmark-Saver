@@ -8,19 +8,22 @@ if (isset($_POST["logout"])) {
     exit();
 }
 
-// Database configuration
-$servername = "localhost:3308";
-$username = "root";
-$password = "ish@123";
-$database = "bookmark";
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Database configuration
+    $host = "localhost";
+    $port = 5432;
+    $dbname = "bookmark";
+    $user = "ishini";
+    $password = "lMwuIXErOpfPZu4ZcKk9thg00HPinX1f";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+    // Create connection
+    $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . pg_last_error());
+    }
 
 // Fetch profile image path for the logged-in user
 if (isset($_SESSION["id"])) {
