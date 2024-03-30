@@ -1,49 +1,52 @@
 <?php
-
+session_start(); // Start the session if not already started
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
-    $servername = "localhost:3308";
-    $username = "root";
-    $password = "ish@123";
-    $database = "bookmark";
+    $host = "localhost";
+    $port = 5432;
+    $dbname = "bookmark";
+    $user = "ishini";
+    $password = "lMwuIXErOpfPZu4ZcKk9thg00HPinX1f";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
+    $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
     // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if (!$conn) {
+        die("Connection failed: " . pg_last_error());
     }
 
     // Retrieve username and password from the form
-    $username = $_POST["userName"];
-    $password = $_POST["password"];
+    $username = pg_escape_string($_POST["userName"]);
+    $password = pg_escape_string($_POST["password"]);
 
     // Check if username already exists
     $sql_check = "SELECT * FROM users WHERE username='$username'";
-    $result_check = $conn->query($sql_check);
-    if ($result_check->num_rows > 0) {
+    $result_check = pg_query($conn, $sql_check);
+    if (!$result_check) {
+        die("Error in SQL query: " . pg_last_error());
+    }
+
+    if (pg_num_rows($result_check) > 0) {
         $error = "Username already exists";
     } else {
         // Insert new user into the database
         $sql_insert = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
-        if ($conn->query($sql_insert) === TRUE) {
+        $result_insert = pg_query($conn, $sql_insert);
+        if ($result_insert) {
             // Automatically log in the new user
             $_SESSION["username"] = $username;
             // Redirect to home page
             header("Location: index.php");
             exit();
         } else {
-            $error = "Error: " . $conn->error;
+            $error = "Error: " . pg_last_error();
         }
     }
 
-    $conn->close();
+    pg_close($conn);
 }
 ?>
 
